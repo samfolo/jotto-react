@@ -5,4 +5,5 @@ enzyme
 jest-enzyme
 enzyme-adapter-react-16
 babel-plugin-jsx-remove-data-test-id
+check-prop-types
 ```

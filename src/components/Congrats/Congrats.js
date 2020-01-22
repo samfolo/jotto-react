@@ -1,5 +1,6 @@
 import React from 'react';
 import Classes from './Congrats.module.css';
+import PropTypes from 'prop-types';
 
 class Congrats extends React.Component {
   state = {
@@ -16,6 +17,10 @@ class Congrats extends React.Component {
       </div>
     );
   }
+}
+
+Congrats.propTypes = {
+  success: PropTypes.bool.isRequired,
 }
 
 export default Congrats;
