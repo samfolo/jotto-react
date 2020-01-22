@@ -18,4 +18,16 @@ describe('<Congrats />', () => {
   it('renders without crashing', () => {
     expect(congratsComponent).toHaveLength(1);
   });
+
+  it('renders no text when `success` prop is false', () => {
+    wrapper = setup(Congrats, { success: false });
+    const congratsMessage = findByTestAttr(wrapper, 'congrats-message');
+    expect(congratsMessage.text()).not.toContain('Congratulations, you guessed the word!');
+  });
+
+  it('renders congrats message when `success` prop is true', () => {
+    wrapper = setup(Congrats, { success: true });
+    const congratsMessage = findByTestAttr(wrapper, 'congrats-message');
+    expect(congratsMessage.text()).toContain('Congratulations, you guessed the word!');
+  });
 });
