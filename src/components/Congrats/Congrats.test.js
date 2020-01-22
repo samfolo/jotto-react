@@ -1,12 +1,7 @@
 import React from 'react';
-import Enzyme from 'enzyme';
-import EnzymeAdapter from 'enzyme-adapter-react-16';
 import checkPropTypes from 'check-prop-types';
-
 import { setup, findByTestAttr, checkProps } from '../../testHelpers';
 import Congrats from './Congrats';
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 describe('<Congrats />', () => {
   let wrapper;
