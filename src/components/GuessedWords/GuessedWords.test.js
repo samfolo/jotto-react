@@ -35,6 +35,29 @@ describe('<GuessedWords />', () => {
   }); 
 
   describe('when there are some words guessed', () => {
+    const guessedWords = [
+      { guessedWord: 'train', letterMatchCount: 3 },
+      { guessedWord: 'raindrop', letterMatchCount: 4 },
+      { guessedWord: 'print', letterMatchCount: 4 },
+    ];
 
+    beforeEach(() => {
+      wrapper = setup(GuessedWords, null, { guessedWords });
+    });
+    
+    it('does not render the text `Try to guess the word`', () => {
+      const instructions = findByTestAttr(wrapper, 'instructions');
+      expect(instructions).toHaveLength(0);
+    });
+
+    it('renders a list of guessed words', () => {
+      const guessedWordsNode = findByTestAttr(wrapper, 'guessed-words-list');
+      expect(guessedWordsNode).toHaveLength(1);
+    });
+
+    it('renders each guessed word', () => {
+      const guessedWordsNode = findByTestAttr(wrapper, 'guessed-word');
+      expect(guessedWordsNode).toHaveLength(guessedWords.length);
+    });
   }); 
 });
