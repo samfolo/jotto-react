@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 class GuessedWords extends React.Component {
   render() {
     return (
-      <div data-test='component-guessed-words' />
+      <div data-test='component-guessed-words'>
+        <div data-test='instructions'>
+          Try to guess the word
+        </div>
+      </div>
     );
   }
 }

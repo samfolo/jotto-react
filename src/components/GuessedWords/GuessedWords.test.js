@@ -22,4 +22,19 @@ describe('<GuessedWords />', () => {
   it('does not throw warning with expected props', () => {
     checkProps(GuessedWords, defaultProps);
   });
+
+  describe('when there are no words guessed', () => {
+    beforeEach(() => {
+      wrapper = setup(GuessedWords, { guessedWords: []  });
+    });
+
+    it('renders the text `Try to guess the word`', () => {
+      const instructions = findByTestAttr(wrapper, 'instructions');
+      expect(instructions.text().length).not.toBe(0);
+    });
+  }); 
+
+  describe('when there are some words guessed', () => {
+
+  }); 
 });
