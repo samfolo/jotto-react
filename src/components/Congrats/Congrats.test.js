@@ -1,5 +1,3 @@
-import React from 'react';
-import checkPropTypes from 'check-prop-types';
 import { setup, findByTestAttr, checkProps } from '../../testHelpers';
 import Congrats from './Congrats';
 
