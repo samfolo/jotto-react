@@ -41,8 +41,13 @@ describe('<GuessedWords />', () => {
       { guessedWord: 'print', letterMatchCount: 4 },
     ];
 
+    let guessedWordsNode;
+    let guessedWordNodes;
+
     beforeEach(() => {
       wrapper = setup(GuessedWords, null, { guessedWords });
+      guessedWordsNode = findByTestAttr(wrapper, 'guessed-words-list');
+      guessedWordNodes = findByTestAttr(wrapper, 'guessed-word');
     });
     
     it('does not render the text `Try to guess the word`', () => {
@@ -51,13 +56,21 @@ describe('<GuessedWords />', () => {
     });
 
     it('renders a list of guessed words', () => {
-      const guessedWordsNode = findByTestAttr(wrapper, 'guessed-words-list');
       expect(guessedWordsNode).toHaveLength(1);
+      expect(guessedWordNodes).toHaveLength(guessedWords.length);
     });
 
     it('renders each guessed word', () => {
-      const guessedWordsNode = findByTestAttr(wrapper, 'guessed-word');
-      expect(guessedWordsNode).toHaveLength(guessedWords.length);
+      guessedWords.forEach(word => {
+        expect(guessedWordsNode.text()).toContain(word.guessedWord);
+      });
+    });
+
+    it('renders the letter match count for each guessed word', () => {
+      expect(guessedWordNodes).toHaveLength(guessedWords.length);
+      guessedWords.forEach(word => {
+        expect(guessedWordsNode.text()).toContain(word.letterMatchCount);
+      });
     });
   }); 
 });
