@@ -4,9 +4,14 @@ import GuessedWords from './GuessedWords';
 describe('<GuessedWords />', () => {
   let wrapper;
   let guessedWordsComponent;
+  const defaultProps = { 
+    guessedWords: [
+      { guessedWord: 'train', letterMatchCount: 3 },
+    ]
+  }
   
   beforeEach(() => {
-    wrapper = setup(GuessedWords);
+    wrapper = setup(GuessedWords, defaultProps);
     guessedWordsComponent = findByTestAttr(wrapper, 'component-guessed-words');
   });
 
@@ -15,7 +20,6 @@ describe('<GuessedWords />', () => {
   });
 
   it('does not throw warning with expected props', () => {
-    const expectedProps = {}
-    checkProps(GuessedWords, expectedProps);
+    checkProps(GuessedWords, defaultProps);
   });
 });

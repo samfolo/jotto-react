@@ -4,7 +4,7 @@ import React from 'react';
 import { shallow } from "enzyme";
 import checkPropTypes from 'check-prop-types';
 
-export const setup = (Component, defaultProps, props = {}, state = null) => {
+export const setup = (Component, defaultProps = {}, props = {}, state = null) => {
   const setupProps = { ...defaultProps, ...props }
   const wrapper = shallow(<Component { ...setupProps } />);
   if (state) wrapper.setState(state);
