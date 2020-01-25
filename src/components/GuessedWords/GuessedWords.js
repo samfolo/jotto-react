@@ -13,8 +13,8 @@ class GuessedWords extends React.Component {
     });
 
     let table = (
-      <table data-test='guessed-words-list'>
-        <thead>
+      <table data-test='guessed-words-list' className='table taable-sm'>
+        <thead className='thead-light'>
           <tr><th>Guessed Word</th><th>Letter Match Count</th></tr>
         </thead>
         <tbody>

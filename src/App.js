@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import GuessedWords from '../src/components/GuessedWords/GuessedWords';
@@ -8,7 +7,7 @@ import Congrats from '../src/components/Congrats/Congrats';
 class App extends React.Component {
   render() {
     return (
-      <div className='App' data-test='component-app'>
+      <div className='container' data-test='component-app'>
         <h1>Jotto</h1>
         <Congrats success={true} data-test='component-congrats' />
         <GuessedWords 

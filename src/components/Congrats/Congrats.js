@@ -12,7 +12,7 @@ class Congrats extends React.Component {
     if (this.props.success) content = 'Congratulations, you guessed the word!';
 
     return (
-      <div className={Classes.Congrats} data-test='component-congrats'>
+      <div className={Classes.Congrats} data-test='component-congrats' className='alert alert-success'>
         <div data-test='congrats-message'>{content}</div>
       </div>
     );
