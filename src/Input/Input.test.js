@@ -16,10 +16,12 @@ describe('<Input />', () => {
     it('renders without crashing', () => {
       expect(inputComponent).toHaveLength(1);
     });
+
     it('renders the input box', () => {
       const inputBox = findByTestAttr(wrapper, 'input-box');
       expect(inputBox).toHaveLength(1);
     });
+
     it('renders the submit button', () => {
       const submitButton = findByTestAttr(wrapper, 'submit-button');
       expect(submitButton).toHaveLength(1);
@@ -27,18 +29,22 @@ describe('<Input />', () => {
   });
   
   describe('when the word has been guessed', () => {
+    beforeEach(() => {
+      wrapper = connectedSetup(Input, { success: true });
+    });
+
     it('renders without crashing', () => {
       expect(inputComponent).toHaveLength(1);
     });
-    it('renders the input box', () => {
 
+    it('does not render the input box', () => {
+      const inputBox = findByTestAttr(wrapper, 'input-box');
+      expect(inputBox).toHaveLength(0);
     });
-    it('renders the submit button', () => {
 
+    it('does not render the submit button', () => {
+      const submitButton = findByTestAttr(wrapper, 'submit-button');
+      expect(submitButton).toHaveLength(0);
     });
-  });
-
-  describe('updating state', () => {
-
   });
 });
